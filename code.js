@@ -122,7 +122,7 @@ function assignTemp(tempArr){
         var r = Math.floor(Math.random()*dynamicArray.length);
         if(arr.indexOf(r) === -1) arr.push(r);
     }
-    document.write(arr);
+    console.log(arr);
     return arr;
     
 }
