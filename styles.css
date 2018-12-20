@@ -18,6 +18,10 @@
     border: solid purple 10px;
 }
 
+.separator {
+    overflow:hidden;
+}
+
 .time {
     color: blue;
     text-align: left;
