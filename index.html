@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aviel's Recepies exercise</title>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Avielz Bootstrap recepie</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 </head>
 
 <body>
-<section>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+    <section>
     <div class="static">
+        <img src="images/roast%20chicken.jpg" alt="Roast Chicken">
         <div class="name" id="name1"></div>
         <span class="time" id="time1"></span>
         <span class="difc" id="difc1"></span>
@@ -21,6 +31,7 @@
     </div>
 
     <div class="static">
+        <img src="images/rice.jpg" alt="Rice">
         <div class="name" id="name2"></div>
         <span class="time" id="time2"></span>
         <span class="difc" id="difc2"></span>
@@ -30,6 +41,7 @@
     </div>
 
     <div class="static">
+        <img src="images/peas.jpg" alt="Peas">
         <div class="name" id="name3"></div>
         <span class="time" id="time3"></span>
         <span class="difc" id="difc3"></span>
@@ -39,36 +51,51 @@
     </div>
 </section>
 
+<hr><hr>
+
     <!-- dynamic part-->
+    <button onclick="myButtonFunction()" class="btn btn-primary">Reload dynamic recipes</button>
+
     <section>
         <div class="dynamic">
-        <div class="name" id="dynName1"></div>
-        <span class="time" id="dynTime1"></span>
-        <span class="difc" id="dynDifc1"></span>
-        <div class="ingrid" id="dynIngrid1"></div>
-        <br>Instructions:
-        <p id="dynInstructions1"></p>
-    </div>
+            <img class="imageDynamic" id="dynImage1">
+            <div class="name" id="dynName1"></div>
+            <span class="time" id="dynTime1"></span>
+            <span class="difc" id="dynDifc1"></span>
+            <div class="ingrid" id="dynIngrid1"></div>
+            <br>Instructions:
+            <p id="dynInstructions1"></p>
+        </div>
 
-    <div class="dynamic">
-        <div class="name" id="dynName2"></div>
-        <span class="time" id="dynTime2"></span>
-        <span class="difc" id="dynDifc2"></span>
-        <div class="ingrid" id="dynIngrid2"></div>
-        <br>Instructions:
-        <p id="dynInstructions2"></p>
-    </div>
+        <div class="dynamic">
+            <img class="imageDynamic" id="dynImage2">
+            <div class="name" id="dynName2"></div>
+            <span class="time" id="dynTime2"></span>
+            <span class="difc" id="dynDifc2"></span>
+            <div class="ingrid" id="dynIngrid2"></div>
+            <br>Instructions:
+            <p id="dynInstructions2"></p>
+        </div>
 
-    <div class="dynamic">
-        <div class="name" id="dynName3"></div>
-        <span class="time" id="dynTime3"></span>
-        <span class="difc" id="dynDifc3"></span>
-        <div class="ingrid" id="dynIngrid3"></div>
-        <br>Instructions:
-        <p id="dynInstructions3"></p>
-    </div>
+        <div class="dynamic">
+            <img class="imageDynamic" id="dynImage3">
+            <div class="name" id="dynName3"></div>
+            <span class="time" id="dynTime3"></span>
+            <span class="difc" id="dynDifc3"></span>
+            <div class="ingrid" id="dynIngrid3"></div>
+            <br>Instructions:
+            <p id="dynInstructions3"></p>
+        </div>
     </section>
+
     <script src="code.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    < Include all compiled plugins (below), or include individual files as needed -->
+    
 </body>
 
 </html>
