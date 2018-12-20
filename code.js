@@ -37,7 +37,7 @@ function myButtonFunction() {
     location.reload();
 }
 
-var Recepie1 = new Recipe("images/roast%20chicken.jpg","Roast Chicken", 45, "easy", "Place chicken pieces in oven tray. spread ingredients on top and rub with hands into chicken. Place in oven uncovered on grill at 210C for 35 minutes until color is crispy brown.", [
+var Recepie1 = new Recipe("image/roast%20chicken.jpg","Roast Chicken", 45, "easy", "Place chicken pieces in oven tray. spread ingredients on top and rub with hands into chicken. Place in oven uncovered on grill at 210C for 35 minutes until color is crispy brown.", [
             new ingridient("chicken", "4", " thighs"),
             new ingridient("salt", "1", " pinch"),
             new ingridient("pepper", "1", " pinch"),
@@ -46,14 +46,14 @@ var Recepie1 = new Recipe("images/roast%20chicken.jpg","Roast Chicken", 45, "eas
             new ingridient("lemon juice", "1", " squeeze")
         ]);
 
-var Recepie2 = new Recipe("images/rice.jpg","Rice", 20, "easy", "Place rice in a sieve and rinse well under the tap. Place washed rice in pot. add water and other Ingredients. Stir well, cover with lid and heat to boil then reduce heat to simmer for 15 minutes. Allow to cool down covered for another 10 minutes at least.", [
+var Recepie2 = new Recipe("image/rice.jpg","Rice", 20, "easy", "Place rice in a sieve and rinse well under the tap. Place washed rice in pot. add water and other Ingredients. Stir well, cover with lid and heat to boil then reduce heat to simmer for 15 minutes. Allow to cool down covered for another 10 minutes at least.", [
             new ingridient("rice", "1 1/2", " Cup"),
             new ingridient("salt", "1", " teaspoon"),
             new ingridient("oil", "1", " tablespoon"),
             new ingridient("water", "3", " cup"),
         ]);
 
-var Recepie3 = new Recipe("images/peas.jpg","Peas", 10, "easy", "Place peas in pot. add water and salt. Cover with lid and heat to boil then turn heat off. Allow to cool down covered for another 5 minutes and then strain over sieve.", [
+var Recepie3 = new Recipe("image/peas.jpg","Peas", 10, "easy", "Place peas in pot. add water and salt. Cover with lid and heat to boil then turn heat off. Allow to cool down covered for another 5 minutes and then strain over sieve.", [
             new ingridient("Peas", "800", "gram"),
             new ingridient("salt", "1", " teaspoon"),
             new ingridient("water", "1", " cup"),
