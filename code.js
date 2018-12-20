@@ -1,4 +1,5 @@
-function Recipe(name, preparationTime, difficulty, instructions, Ingredients) {
+function Recipe(image, name, preparationTime, difficulty, instructions, Ingredients) {
+    this.image = image;
     this.name = name;
     this.preparationTime = preparationTime;
     this.difficulty = difficulty;
@@ -13,7 +14,8 @@ function ingridient(name, quant, type) {
 }
 
 function ingridientToString(ingridient) {
-    return [ingridient.name,
+    return [ingridient.image,
+            ingridient.name,
             ingridient.quant,
             ingridient.type
            ].join(' ');
@@ -31,8 +33,11 @@ function ingridientPrint(ingridient) {
     }
 }
 
+function myButtonFunction() {
+    location.reload();
+}
 
-var Recepie1 = new Recipe("Roast Chicken", 45, "easy", "Place chicken pieces in oven tray. spread ingredients on top and rub with hands into chicken. Place in oven uncovered on grill at 210C for 35 minutes until color is crispy brown.", [
+var Recepie1 = new Recipe("images/roast%20chicken.jpg","Roast Chicken", 45, "easy", "Place chicken pieces in oven tray. spread ingredients on top and rub with hands into chicken. Place in oven uncovered on grill at 210C for 35 minutes until color is crispy brown.", [
             new ingridient("chicken", "4", " thighs"),
             new ingridient("salt", "1", " pinch"),
             new ingridient("pepper", "1", " pinch"),
@@ -41,14 +46,14 @@ var Recepie1 = new Recipe("Roast Chicken", 45, "easy", "Place chicken pieces in 
             new ingridient("lemon juice", "1", " squeeze")
         ]);
 
-var Recepie2 = new Recipe("Rice", 20, "easy", "Place rice in a sieve and rinse well under the tap. Place washed rice in pot. add water and other Ingredients. Stir well, cover with lid and heat to boil then reduce heat to simmer for 15 minutes. Allow to cool down covered for another 10 minutes at least.", [
+var Recepie2 = new Recipe("images/rice.jpg","Rice", 20, "easy", "Place rice in a sieve and rinse well under the tap. Place washed rice in pot. add water and other Ingredients. Stir well, cover with lid and heat to boil then reduce heat to simmer for 15 minutes. Allow to cool down covered for another 10 minutes at least.", [
             new ingridient("rice", "1 1/2", " Cup"),
             new ingridient("salt", "1", " teaspoon"),
             new ingridient("oil", "1", " tablespoon"),
             new ingridient("water", "3", " cup"),
         ]);
 
-var Recepie3 = new Recipe("Peas", 10, "easy", "Place peas in pot. add water and salt. Cover with lid and heat to boil then turn heat off. Allow to cool down covered for another 5 minutes and then strain over sieve.", [
+var Recepie3 = new Recipe("images/peas.jpg","Peas", 10, "easy", "Place peas in pot. add water and salt. Cover with lid and heat to boil then turn heat off. Allow to cool down covered for another 5 minutes and then strain over sieve.", [
             new ingridient("Peas", "800", "gram"),
             new ingridient("salt", "1", " teaspoon"),
             new ingridient("water", "1", " cup"),
@@ -59,6 +64,7 @@ var i = 1;
 while (i <= 3) {
     console.log(i);
     if (i == 1) {
+              
         document.getElementById("name" + i).innerHTML = Recepie1.name;
         document.getElementById("time" + i).innerHTML = "Preparation  time: " + Recepie1.preparationTime;
         document.getElementById("difc" + i).innerHTML = "Difficulty: " + Recepie1.difficulty;
@@ -82,65 +88,99 @@ while (i <= 3) {
     i++;
 }
 
-/* dynamic boxes*/
-var dynamicArray = [Recepie1, Recepie2, Recepie3]
+/* dynamic boxes- randomly will display different order of the recepies*/
+var dynamicArray = [Recepie1, Recepie2, Recepie3];
+var tempArr = [-1];
 var temp;
-var j = 1;
-while (j <= 3) {
-    if (j == 1) {
-        temp = Math.floor((Math.random() * 3));
-        console.log("i am box dyn 1");
-        document.getElementById("dynName" + j).innerHTML = dynamicArray[temp].name;
-        document.getElementById("dynTime" + j).innerHTML = "Preparation  time: " + dynamicArray[temp].preparationTime;
-        document.getElementById("dynDifc" + j).innerHTML = "Difficulty: " + dynamicArray[temp].difficulty;
-        document.getElementById("dynIngrid" + j).innerHTML = "Ingredients: " + "<br/>" + ingridientPrint(dynamicArray[temp].Ingredients);
-        document.getElementById("dynInstructions" + j).innerHTML = dynamicArray[temp].instructions;
+
+//My original solution. to use need to invoke assignTemp function in line 170 into the for J= loop
+//and all references to [temp[j-1]] need to be changed back just to [temp]
+
+// function randomRecep(){
+//     return Math.floor((Math.random() * 3));
+// }
+
+// function assignTemp(tempArr){
+//     console.log("Started assign function, tempArr has: "+tempArr);
+//     var num = randomRecep();
+//     for (var i = 0; i < tempArr.length; i++) {
+//         console.log("num is: " + num + ". check for doubles. tampArr["+i+"] is: "+tempArr[i]);
+//         if (num == tempArr[i]){
+//             console.log("FOUND DOUBLE! random num = "+num+" IS ALREADY IN array:"+tempArr)
+//             return assignTemp(tempArr);
+//         }
+        
+//     }    
+//     tempArr.push(num);
+//     console.log("pushed " + num + "into array. now is:" + tempArr);
+//     return num;
+    
+// }
+function assignTemp(tempArr){
+    var arr = []
+    while(arr.length < dynamicArray.length){
+        var r = Math.floor(Math.random()*dynamicArray.length);
+        if(arr.indexOf(r) === -1) arr.push(r);
     }
-    if (j == 2) {
-        temp = Math.floor((Math.random() * 3));
-        console.log("i am box dyn 2");
-        document.getElementById("dynName" + j).innerHTML = dynamicArray[temp].name;
-        document.getElementById("dynTime" + j).innerHTML = "Preparation  time: " + dynamicArray[temp].preparationTime;
-        document.getElementById("dynDifc" + j).innerHTML = "Difficulty: " + dynamicArray[temp].difficulty;
-        document.getElementById("dynIngrid" + j).innerHTML = "Ingredients: " + "<br/>" + ingridientPrint(dynamicArray[temp].Ingredients);
-        document.getElementById("dynInstructions" + j).innerHTML = dynamicArray[temp].instructions;
-    }
-    if (j == 3) {
-        temp = Math.floor((Math.random() * 3));
-        console.log("i am box dyn 3");;
-        document.getElementById("dynName" + j).innerHTML = dynamicArray[temp].name;
-        document.getElementById("dynTime" + j).innerHTML = "Preparation  time: " + dynamicArray[temp].preparationTime;
-        document.getElementById("dynDifc" + j).innerHTML = "Difficulty: " + dynamicArray[temp].difficulty;
-        document.getElementById("dynIngrid" + j).innerHTML = "Ingredients: " + "<br/>" + ingridientPrint(dynamicArray[temp].Ingredients);
-        document.getElementById("dynInstructions" + j).innerHTML = dynamicArray[temp].instructions;
-    }
-    j++;
+    document.write(arr);
+    return arr;
+    
 }
-/*document.getElementById("box1").innerHTML =
-    Recepie1.name + "<br/>" + "Preparation time: " + Recepie1.preparationTime + "<br/>" + "Difficulty: " + Recepie1.difficulty + "<br/>" + "<br/>" + "Instructions:" + "<br/>" + Recepie1.instructions + "<br/>" + "<br/>" + ingridientPrint(Recepie1.Ingredients);
-*/
-/*first recepie*/
+
+
 /*
-document.getElementById("box"+2).innerHTML =
-    Recepie2.name + "<br/>" + "Preparation time: " + Recepie2.preparationTime + "<br/>" + "Difficulty: " + Recepie2.difficulty + "<br/>" + "<br/>" + "Instructions:" + "<br/>" + Recepie2.instructions + "<br/>" + "<br/>" + ingridientPrint(Recepie2.Ingredients);
+more solutions from stackoverflow:
 
-document.getElementById("box3").innerHTML =
-    Recepie3.name + "<br/>" + "Preparation time: " + Recepie3.preparationTime + "<br/>" + "Difficulty: " + Recepie3.difficulty + "<br/>" + "<br/>" + "Instructions:" + "<br/>" + Recepie3.instructions + "<br/>" + "<br/>" + ingridientPrint(Recepie3.Ingredients);
+1.
 
+var arr = []
+while(arr.length < 8){
+    var r = Math.floor(Math.random()*100) + 1;
+    if(arr.indexOf(r) === -1) arr.push(r);
+}
+document.write(arr);
 
-var Recepie1 = {
-        name:"Chicken Makhani (Indian Butter Chicken)",
-        time:"60",
-        difficulty:"easy", 
-        instructions:"Heat 1 tablespoon oil in a large saucepan over medium high heat. Saute shallot and onion until soft asnd translucent. Stir in butter, lemon juice, ginger-garlic paste, 1 teaspoon garam masala, chili powder, cumin and bay leaf. Cook, stirring, for 1 minute. Add tomato sauce, and cook for 2 minutes, stirring frequently. Stir in half-and-half and yogurt. Reduce heat to low, and simmer for 10 minutes, stirring frequently. Season with salt pepper. Remove from heat and set aside.Heat 1 tablespoon oil in a large heavy skillet over medium heat. Cook chicken until lightly browned, about 10 minutes. Reduce heat, and season with 1 teaspoon garam masala and cayenne. Stir in a few spoonfuls of sauce, and simmer until liquid has reduced, and chicken is no longer pink. Stir cooked chicken into sauce.Mix together cornstarch and water, then stir into the sauce. Cook for 5 to 10 minutes, or until thickened.",
-    Ingredients:[
-        new ingridient("sugar", "1/2" ," teaspoon"),
-        new ingridient("sugar", "1/2" ," teaspoon"),
-        new ingridient("sugar", "1/2" ," teaspoon"),
-        new ingridient("sugar", "1/2" ," teaspoon"),
-        new ingridient("sugar", "1/2" ," teaspoon"),
-        new ingridient("butter", "1/2" ," teaspoon")
-    ]
-  
-};
+2.
+You could also rewrite your code in the following way (I do not know if you have any requirements to a certain JavaScript versions, or you are only allowed to use a for loop)
+
+function randomRecep(){
+ return Math.floor((Math.random() * 3));
+}
+
+function assignTemp(tempArr){
+  const number = randomRecep();
+  if (tempArr.includes( number ) ) {
+    console.warn( `${number} exists in [${tempArr.join(', ')}]` );
+    return assignTemp(tempArr);
+  }
+  console.warn( `adding ${number} to [${tempArr.join(', ')}]` );
+  tempArr.push( number );
+  return tempArr;
+}
+
+const output = [];
+// shouldn't call this more than the nr of output possibilities (and the pool here has 3 options)
+assignTemp( output );
+assignTemp( output );
+assignTemp( output );
+// we will always expect 0, 1, 2 in the output in some manner
+console.log( output );
 */
+
+temp = assignTemp(tempArr);  
+
+for (j = 1; j <= dynamicArray.length; j++){
+        
+        console.log("dynName" + j);
+            
+        console.log("temp num is: " + temp[j-1]);
+        console.log("RECEPIE is: " + dynamicArray[temp[j-1]].name);
+        
+        document.getElementById("dynImage" + j).src=dynamicArray[temp[j-1]].image;
+        document.getElementById("dynName" + j).innerHTML = dynamicArray[temp[j-1]].name;
+        document.getElementById("dynTime" + j).innerHTML = "Preparation  time: " + dynamicArray[temp[j-1]].preparationTime;
+        document.getElementById("dynDifc" + j).innerHTML = "Difficulty: " + dynamicArray[temp[j-1]].difficulty;
+        document.getElementById("dynIngrid" + j).innerHTML = "Ingredients: " + "<br/>" + ingridientPrint(dynamicArray[temp[j-1]].Ingredients);
+        document.getElementById("dynInstructions" + j).innerHTML = dynamicArray[temp[j-1]].instructions;
+    };
+ 
